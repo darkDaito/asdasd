@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="login">
+    <input type="text" placeholder="password">
+    <button>Reg</button>
+<script>
+
+let button = document.querySelector('button')
+let loginInput = document.getElementsByTagName('input')[0]
+let passwordInput = document.getElementsByTagName('input')[1]
+
+
+
+button.addEventListener('click', function(){
+    let login = loginInput.value
+    let password = passwordInput.value
+    fetch(`http://localhost:3005/reg/${login}/${password}`)
+        .then((res)=>(res.json()))
+        .then((json)=>{
+            console.log(json)
+        })
+})
+
+
+</script>
+</body>
+</html>
